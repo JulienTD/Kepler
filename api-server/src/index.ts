@@ -18,18 +18,12 @@ app.listen(PORT, () => {
 });
 
 myPort.on('open', () => {
-    myPort.write('l');
-    myPort.write('e');
-    myPort.write('f');
-    myPort.write('t');
+    myPort.write("left;");
 });
 
 parser.on('data', (data: Buffer) => {
     console.log(data.toString())
-	myPort.write('l');
-    myPort.write('e');
-    myPort.write('f');
-    myPort.write('t');
+    myPort.write("left;");
 });
 
 
