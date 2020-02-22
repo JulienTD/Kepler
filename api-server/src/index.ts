@@ -1,7 +1,6 @@
 import express = require("express");
 import { validator } from './validator';
-import { SerialPort } from 'serialport'
-
+const SerialPort = require('serialport')
 const portName = process.argv[2]
 
 const myPort = new SerialPort(portName, {baudRate: 9600});
