@@ -14,8 +14,10 @@ app.listen(PORT, () => {
 });
 
 myPort.on('open', () => {
-	myPort.write('left');
+    myPort.write('left');
 });
-myPort.on('data', console.log);
+myPort.on('data', (data: Buffer) => {
+    console.log(data.toString())
+});
 
 
