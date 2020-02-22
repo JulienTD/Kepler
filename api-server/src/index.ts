@@ -13,7 +13,9 @@ app.listen(PORT, () => {
     console.log("Server Started");
 });
 
-myPort.on('open', console.log);
+myPort.on('open', () => {
+	myPort.write('left');
+});
 myPort.on('data', console.log);
 
 
