@@ -1,13 +1,8 @@
 import express = require("express");
 import { validator } from './validator';
 const SerialPort = require('serialport');
-const Readline = SerialPort.parsers.Readline;
-const parser = new Readline()
-
 const portName = process.argv[2]
-
 const myPort = new SerialPort(portName, {baudRate: 9600});
-myPort.pipe(parser);
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -21,7 +16,7 @@ myPort.on('open', () => {
     myPort.write("left;");
 });
 
-parser.on('data', (data: Buffer) => {
+myPort.on('data', (data: Buffer) => {
     console.log(data.toString())
     myPort.write("left;");
 });
